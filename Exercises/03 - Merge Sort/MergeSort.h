@@ -36,9 +36,9 @@ void merge(int* arr, int sizeLeft, int size)
     {
         if (left < sizeLeft && right < size)
         {
-            if (arr[left] > arr[right])
+            if (arr[left] > arr[right + sizeLeft])
             {
-                temp.push_back(arr[right]);
+                temp.push_back(arr[right + sizeLeft]);
                 right++;
             }
             else
@@ -59,13 +59,13 @@ void merge(int* arr, int sizeLeft, int size)
         {
             while (right < size)
             {
-                temp.push_back(arr[right]);
+                temp.push_back(arr[right + sizeLeft]);
                 right++;
             }
         }
     }
 
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < size + sizeLeft; i++)
     {
         arr[i] = temp[i];
     }
